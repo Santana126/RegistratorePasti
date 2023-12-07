@@ -2,7 +2,11 @@ package com.example.registratorepasti.view;
 
 public interface MenuView {
 
-    int askOperation();
+    void setOpNumber(int number);
+
+    int getOpNumber();
+
+    void askOperation();
 
     void render();
 }
