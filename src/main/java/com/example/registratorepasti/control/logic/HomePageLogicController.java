@@ -1,7 +1,6 @@
 package com.example.registratorepasti.control.logic;
 
 import com.example.registratorepasti.control.graphic.HomePageGUIController;
-import com.example.registratorepasti.utils.Printer;
 
 public class HomePageLogicController {
 
@@ -17,15 +16,11 @@ public class HomePageLogicController {
         homePageGUIController.showMenu();
         int operation = homePageGUIController.getOpNumber();
 
-        Printer printer = new Printer();
-        switch (operation) {
-            case 1 -> {
-                MealPageLogicController mealPageLogicController = new MealPageLogicController(this.uiType);
-                mealPageLogicController.showMealPage();
-            }
-            case 2 -> printer.printMessage("Work on it");
-            case 3 -> printer.printMessage("Work on it2");
-            default -> printer.printMessage("DEH");
+        if (operation == 1) {
+            MealRegisterLogicController mealRegisterLogicController = new MealRegisterLogicController(this.uiType);
+            mealRegisterLogicController.startMealRegisterPage();
+        } else {
+            homePageGUIController.showNotImplemented();
         }
     }
 }

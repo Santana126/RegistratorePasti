@@ -1,29 +1,34 @@
 package com.example.registratorepasti.model;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public class Meal {
-    private Date date;
+    private final LocalDate date;
 
-    private String type;
+    private final String type;
+
+    public Meal(LocalDate date,String mealType){
+        this.date = date;
+        this.type = mealType;
+    }
 
     private Integer calories;
 
-    private Integer carbs;
+    private float carbs = -1;
 
-    private Integer fat;
+    private float fat = -1;
 
-    private Integer protein;
+    private float protein = -1;
 
 
     public void calcolateCalories(){
-        if(carbs != null && fat != null && protein != null){
-            this.calories = (this.carbs*4)+(this.fat*9)+(this.protein*4);
+        if(carbs != -1 && fat != -1 && protein != -1){
+            this.calories = (int) ((this.carbs*4)+(this.fat*9)+(this.protein*4));
         }
     }
 
 
-    public Date getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
@@ -38,26 +43,26 @@ public class Meal {
     public void setCalories(Integer calories) {
         this.calories = calories;
     }
-    public Integer getCarbs(){
+    public float getCarbs(){
         return carbs;
     }
-    public void setCarbs(Integer carbs) {
+    public void setCarbs(float carbs) {
         this.carbs = carbs;
     }
 
-    public Integer getFat() {
+    public float getFat() {
         return fat;
     }
 
-    public void setFat(Integer fat) {
+    public void setFat(float fat) {
         this.fat = fat;
     }
 
-    public Integer getProtein() {
+    public float getProtein() {
         return protein;
     }
 
-    public void setProtein(Integer protein) {
+    public void setProtein(float protein) {
         this.protein = protein;
     }
 }

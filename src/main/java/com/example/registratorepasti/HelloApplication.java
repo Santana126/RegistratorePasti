@@ -1,7 +1,7 @@
 package com.example.registratorepasti;
 
 import com.example.registratorepasti.control.InitAppController;
-import com.example.registratorepasti.control.logic.MealRegisterLogicController;
+import com.example.registratorepasti.control.logic.HomePageLogicController;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
@@ -11,10 +11,8 @@ public class HelloApplication extends Application {
 
         InitAppController initAppController = new InitAppController();
 
-        MealRegisterLogicController mealRegisterLogicController = new MealRegisterLogicController();
-
-        mealRegisterLogicController.initClass(initAppController.chooseGUI());
-        mealRegisterLogicController.startApp();
+        HomePageLogicController homePageLogicController = new HomePageLogicController(initAppController.chooseGUI());
+        homePageLogicController.operation();
     }
 
     public static void main(String[] args) {
