@@ -8,23 +8,31 @@ import java.util.Objects;
 
 public class HomePageGUIController {
 
+    private int opNumber;
     private final String uiType;
-    private MenuView menuView;
+
+    public int getOpNumber() {
+        return opNumber;
+    }
+
+    public void setOpNumber(int opNumber) {
+        this.opNumber = opNumber;
+    }
 
     public HomePageGUIController(String uiType) {
         this.uiType = uiType;
     }
 
-    public int showMenu() {
+    public void showMenu() {
 
+        MenuView menuView;
         if (Objects.equals(this.uiType, "CLI")){
             menuView = new MenuViewCLI();
         }else {
             menuView = new MenuViewDesktop();
         }
 
-        int operation = menuView.askOperation();
-
-        return operation;
+        menuView.askOperation();
+        setOpNumber(menuView.getOpNumber());
     }
 }

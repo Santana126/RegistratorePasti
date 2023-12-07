@@ -4,10 +4,22 @@ import com.example.registratorepasti.view.MenuView;
 
 public class MenuViewDesktop implements MenuView {
 
-    @Override
-    public int askOperation() {
+    private int opNumber;
 
-        return 0;
+    @Override
+    public int getOpNumber() {
+        return opNumber;
+    }
+
+    @Override
+    public void setOpNumber(int opNumber) {
+        this.opNumber = opNumber;
+    }
+
+    @Override
+    public void askOperation() {
+
+
     }
 
     @Override
