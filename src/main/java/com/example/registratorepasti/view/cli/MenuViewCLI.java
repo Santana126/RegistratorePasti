@@ -27,6 +27,6 @@ public class MenuViewCLI implements MenuView {
     @Override
     public void render() {
         Printer printer = new Printer();
-        printer.printMessage("Operazioni disponibili:\n1)Salva Pasto\n2)Saluta\n3)XFRZ\n4)DEH\n");
+        printer.printMessage("Operazioni disponibili:\n1)Salva Pasto\n2)Operazione 2\n3)Operazione 3\n4)Operazione 4\n");
     }
 }

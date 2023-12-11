@@ -5,14 +5,14 @@ import com.example.registratorepasti.control.logic.HomePageLogicController;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
-public class HelloApplication extends Application {
+public class RegistratoreMain extends Application {
     @Override
     public void start(Stage stage) {
 
         InitAppController initAppController = new InitAppController();
 
         HomePageLogicController homePageLogicController = new HomePageLogicController(initAppController.chooseGUI());
-        homePageLogicController.operation();
+        while (true) homePageLogicController.operation();
     }
 
     public static void main(String[] args) {
