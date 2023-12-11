@@ -1,9 +1,10 @@
 package com.example.registratorepasti.control.logic;
 
 import com.example.registratorepasti.control.graphic.MealRegisterGUIController;
+import com.example.registratorepasti.dao.MealDao;
 import com.example.registratorepasti.model.Meal;
-import java.time.LocalDate;
-import java.util.List;
+
+import java.util.Objects;
 
 public class MealRegisterLogicController {
 
@@ -21,19 +22,31 @@ public class MealRegisterLogicController {
 
         MealRegisterGUIController mealRegisterGUIController = new MealRegisterGUIController(this.uiType);
         mealRegisterGUIController.showPage();
-        createMeal(mealRegisterGUIController.chooseMeal(),mealRegisterGUIController.chooseDate());
 
-        List<float> macros = mealRegisterGUIController.selectMacros();
-        insertMacros(macros);
+        String mealType = "Meal";
+        while (Objects.equals(mealType, "Meal")){
+            mealType = mealRegisterGUIController.chooseMeal();
+        }
+        createMeal(mealType,mealRegisterGUIController.chooseDate());
+
+        mealRegisterGUIController.selectMacros(meal);
+
+        mealConfirm(mealRegisterGUIController);
     }
 
-    private void insertMacros(List<float> macros) {
-        meal.setCarbs(macros.get(0));
-        meal.setFat(macros.get(1));
-        meal.setProtein(macros.get(2));
+    private void mealConfirm(MealRegisterGUIController mealRegisterGUIController) {
+        mealRegisterGUIController.mealResume(meal);
+        if(mealRegisterGUIController.askMealConfirm()){
+            saveMeal();
+        }
     }
 
-    public void createMeal(String mealType, LocalDate date){
+    private void saveMeal() {
+        MealDao mealDao = new MealDao();
+        mealDao.saveMeal(meal);
+    }
+
+    public void createMeal(String mealType, String date){
         meal = new Meal(date,mealType);
     }
 

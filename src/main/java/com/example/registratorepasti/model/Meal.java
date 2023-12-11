@@ -1,13 +1,11 @@
 package com.example.registratorepasti.model;
 
-import java.time.LocalDate;
-
 public class Meal {
-    private final LocalDate date;
+    private final String date;
 
     private final String type;
 
-    public Meal(LocalDate date,String mealType){
+    public Meal(String date,String mealType){
         this.date = date;
         this.type = mealType;
     }
@@ -28,7 +26,7 @@ public class Meal {
     }
 
 
-    public LocalDate getDate() {
+    public String  getDate() {
         return date;
     }
 

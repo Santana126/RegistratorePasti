@@ -1,6 +1,6 @@
 package com.example.registratorepasti.view;
 
-import java.time.LocalDate;
+import com.example.registratorepasti.model.Meal;
 
 public interface MealRegisterPageView {
 
@@ -9,11 +9,17 @@ public interface MealRegisterPageView {
     String chooseMealType();
 
 
-    LocalDate chooseMealDate();
+    String chooseMealDate();
 
     float insertCarbs();
 
-    float insrtFat();
+    float insertFat();
 
     float insertProtein();
+
+    void showResume(Meal meal);
+
+    boolean askConfirm();
+
+    Integer insertCalories();
 }

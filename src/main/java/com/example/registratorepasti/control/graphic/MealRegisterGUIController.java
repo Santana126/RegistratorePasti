@@ -1,11 +1,9 @@
 package com.example.registratorepasti.control.graphic;
 
+import com.example.registratorepasti.model.Meal;
 import com.example.registratorepasti.view.MealRegisterPageView;
 import com.example.registratorepasti.view.cli.MealRegisterPageViewCLI;
 import com.example.registratorepasti.view.desktop.MealRegisterPageViewDesktop;
-
-import java.time.LocalDate;
-import java.util.List;
 
 public class MealRegisterGUIController {
 
@@ -26,29 +24,40 @@ public class MealRegisterGUIController {
         this.uiType = uiType;
     }
     public void showPage(){
-        //MealRegisterPageView mealRegisterPageView;
         if (uiType.equals("CLI")){
             mealRegisterPageView = new MealRegisterPageViewCLI();
         }else {
             mealRegisterPageView = new MealRegisterPageViewDesktop();
         }
         mealRegisterPageView.render();
-
     }
 
     public String  chooseMeal() {
-        return mealRegisterPageView.chooseMealType();
+
+        String choice = "";
+        while (choice.equals("")){
+            choice = mealRegisterPageView.chooseMealType();
+        }
+        return choice;
     }
 
-    public LocalDate chooseDate() {
+    public String chooseDate() {
         return mealRegisterPageView.chooseMealDate();
     }
 
-    public List<float> selectMacros() {
-        List<float> macros = null;
-        macros.add(mealRegisterPageView.insertCarbs());
-        macros.add(mealRegisterPageView.insrtFat());
-        macros.add(mealRegisterPageView.insertProtein());
-        return macros;
+    public void selectMacros(Meal meal) {
+        meal.setCalories(mealRegisterPageView.insertCalories());
+        meal.setCarbs(mealRegisterPageView.insertCarbs());
+        meal.setProtein(mealRegisterPageView.insertProtein());
+        meal.setFat(mealRegisterPageView.insertFat());
+
+    }
+
+    public void mealResume(Meal meal) {
+        mealRegisterPageView.showResume(meal);
+    }
+
+    public boolean askMealConfirm() {
+        return mealRegisterPageView.askConfirm();
     }
 }

@@ -1,8 +1,7 @@
 package com.example.registratorepasti.view.desktop;
 
+import com.example.registratorepasti.model.Meal;
 import com.example.registratorepasti.view.MealRegisterPageView;
-
-import java.time.LocalDate;
 
 public class MealRegisterPageViewDesktop implements MealRegisterPageView {
 
@@ -19,7 +18,7 @@ public class MealRegisterPageViewDesktop implements MealRegisterPageView {
     }
 
     @Override
-    public LocalDate chooseMealDate() {
+    public String chooseMealDate() {
         return null;
     }
 
@@ -29,12 +28,27 @@ public class MealRegisterPageViewDesktop implements MealRegisterPageView {
     }
 
     @Override
-    public float insrtFat() {
+    public float insertFat() {
         return 0;
     }
 
     @Override
     public float insertProtein() {
         return 0;
+    }
+
+    @Override
+    public void showResume(Meal meal) {
+
+    }
+
+    @Override
+    public boolean askConfirm() {
+        return false;
+    }
+
+    @Override
+    public Integer insertCalories() {
+        return null;
     }
 }
