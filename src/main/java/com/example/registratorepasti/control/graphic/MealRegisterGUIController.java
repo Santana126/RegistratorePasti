@@ -60,4 +60,12 @@ public class MealRegisterGUIController {
     public boolean askMealConfirm() {
         return mealRegisterPageView.askConfirm();
     }
+
+    public void saveSuccess() {
+        mealRegisterPageView.showSaveSuccess();
+    }
+
+    public void saveFailed() {
+        mealRegisterPageView.showSaveFailed();
+    }
 }

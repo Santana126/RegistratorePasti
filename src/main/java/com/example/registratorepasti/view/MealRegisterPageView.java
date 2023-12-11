@@ -22,4 +22,8 @@ public interface MealRegisterPageView {
     boolean askConfirm();
 
     Integer insertCalories();
+
+    void showSaveSuccess();
+
+    void showSaveFailed();
 }

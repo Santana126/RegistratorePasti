@@ -37,13 +37,17 @@ public class MealRegisterLogicController {
     private void mealConfirm(MealRegisterGUIController mealRegisterGUIController) {
         mealRegisterGUIController.mealResume(meal);
         if(mealRegisterGUIController.askMealConfirm()){
-            saveMeal();
+            saveMeal(mealRegisterGUIController);
         }
     }
 
-    private void saveMeal() {
+    private void saveMeal(MealRegisterGUIController mealRegisterGUIController) {
         MealDao mealDao = new MealDao();
-        mealDao.saveMeal(meal);
+        if(mealDao.saveMeal(meal)){
+            mealRegisterGUIController.saveSuccess();
+        }else {
+            mealRegisterGUIController.saveFailed();
+        }
     }
 
     public void createMeal(String mealType, String date){

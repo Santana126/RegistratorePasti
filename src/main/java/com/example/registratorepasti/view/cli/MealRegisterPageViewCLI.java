@@ -99,4 +99,16 @@ public class MealRegisterPageViewCLI implements MealRegisterPageView {
         Scanner scanner = new Scanner(System.in);
         return scanner.nextInt();
     }
+
+    @Override
+    public void showSaveSuccess() {
+        Printer printer = new Printer();
+        printer.printMessage("Pasto salvato correttamente!");
+    }
+
+    @Override
+    public void showSaveFailed() {
+        Printer printer = new Printer();
+        printer.printMessage("Errore!!! Pasto non salvato!");
+    }
 }

@@ -13,7 +13,7 @@ public class MealDao {
     private static final String JDBC_URL = "jdbc:sqlite:src/main/resources/com/example/registratorepasti/database/DataBaseProvaPasti";
 
     // Metodo per salvare un'istanza di Risultato nel database
-    public void saveMeal(Meal meal) {
+    public boolean saveMeal(Meal meal) {
 
         try (Connection connection = DriverManager.getConnection(JDBC_URL)) {
             String insertSQL = "INSERT INTO Pasti (Data, Tipo, Calorie, Carbs, Fat, Protein) VALUES (?, ?, ?, ?, ?, ?)";
@@ -25,16 +25,12 @@ public class MealDao {
                 preparedStatement.setFloat(5, meal.getFat());
                 preparedStatement.setFloat(6, meal.getProtein());
                 int rowsAffected = preparedStatement.executeUpdate();
-                if (rowsAffected > 0) {
-                    System.out.println("Entity inserted successfully.");
-                } else {
-                    System.out.println("Failed to insert entity.");
-                }
+                return rowsAffected > 0;
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
+        } catch (SQLException ignored) {
+            //Ignore the Exception at this moment.
+            // ToDo
         }
-
-
+        return false;
     }
 }

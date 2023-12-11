@@ -18,12 +18,15 @@ public class MenuViewDesktop implements MenuView {
 
     @Override
     public void askOperation() {
-
-
+        /*
+        Not implemented yet. Wait for Desktop version.
+         */
     }
 
     @Override
     public void render() {
-
+        /*
+        Not implemented yet. Wait for Desktop version.
+         */
     }
 }

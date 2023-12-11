@@ -8,7 +8,9 @@ public class MealRegisterPageViewDesktop implements MealRegisterPageView {
 
     @Override
     public void render() {
-
+        /*
+        Not implemented yet. Wait for Desktop version.
+         */
     }
 
     @Override
@@ -39,7 +41,9 @@ public class MealRegisterPageViewDesktop implements MealRegisterPageView {
 
     @Override
     public void showResume(Meal meal) {
-
+        /*
+        Not implemented yet. Wait for Desktop version.
+         */
     }
 
     @Override
@@ -50,5 +54,19 @@ public class MealRegisterPageViewDesktop implements MealRegisterPageView {
     @Override
     public Integer insertCalories() {
         return null;
+    }
+
+    @Override
+    public void showSaveSuccess() {
+        /*
+        Not implemented yet. Wait for Desktop version.
+         */
+    }
+
+    @Override
+    public void showSaveFailed() {
+        /*
+        Not implemented yet. Wait for Desktop version.
+         */
     }
 }
